@@ -125,12 +125,15 @@ int sommaElementiArrayAlQuadrato(int[] array)
         return min;
     }
 
-    min = Math.Min(min, array[i]);
+    if (min > array[i])
+    {
+        min = array[i];
+    }
 
     return TrovaNumeroMinimo(array, i + 1, min);
 }
 
-int[] numeri = { 0, 5, 2, 9, 87, 7 };
+int[] numeri = { 98, 5, 2, 9, 87, 7 };
 int minimo = TrovaNumeroMinimo(numeri);
 Console.WriteLine($"Il numero minimo nell'array è: {minimo}");
 
