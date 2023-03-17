@@ -91,38 +91,48 @@ int sommaElementiArrayAlQuadrato(int[] array)
 
 //BONUS
 
-Console.WriteLine("Hei, dammi una lunghezza per l'array...");
+//Console.WriteLine("Hei, dammi una lunghezza per l'array...");
 
-var arrLength = Convert.ToInt32(Console.ReadLine());
+//var arrLength = Convert.ToInt32(Console.ReadLine());
 
-int[] arr = new int[arrLength];
+//int[] arr = new int[arrLength];
 
-for (int i = 0; i < arrLength; i++)
+//for (int i = 0; i < arrLength; i++)
+//{
+//    Console.WriteLine("Dammi un numero...");
+//    arr[i] = Convert.ToInt32(Console.ReadLine());
+//}
+
+//programma(arr);
+//void programma(int[] array)
+//{
+//    Console.WriteLine("Array Originale:");
+//    printArray(array);
+//    Console.WriteLine("Array elevato al quadrato:");
+//    Console.WriteLine(arrayToString(ElevaArrayAlQuadrato(array)));
+//    Console.WriteLine("Somma elementi array originale:");
+//    Console.WriteLine(sommaElementiArray(array));
+//    Console.WriteLine("Somma elementi array elevati al quadrato:");
+//    Console.WriteLine(sommaElementiArrayAlQuadrato(array));
+//}
+
+
+//SUPERBONUS
+ int TrovaNumeroMinimo(int[] array, int i = 0, int min = int.MaxValue)
 {
-    Console.WriteLine("Dammi un numero...");
-    arr[i] = Convert.ToInt32(Console.ReadLine());
+    if (i == array.Length)
+    {
+        return min;
+    }
+
+    min = Math.Min(min, array[i]);
+
+    return TrovaNumeroMinimo(array, i + 1, min);
 }
 
-programma(arr);
-void programma(int[] array)
-{
-    Console.WriteLine("Array Originale:");
-    printArray(array);
-    Console.WriteLine("Array elevato al quadrato:");
-    Console.WriteLine(arrayToString(ElevaArrayAlQuadrato(array)));
-    Console.WriteLine("Somma elementi array originale:");
-    Console.WriteLine(sommaElementiArray(array));
-    Console.WriteLine("Somma elementi array elevati al quadrato:");
-    Console.WriteLine(sommaElementiArrayAlQuadrato(array));
-}
-
-
-
-
-
-
-
-
+int[] numeri = { 0, 5, 2, 9, 87, 7 };
+int minimo = TrovaNumeroMinimo(numeri);
+Console.WriteLine($"Il numero minimo nell'array è: {minimo}");
 
 
 
